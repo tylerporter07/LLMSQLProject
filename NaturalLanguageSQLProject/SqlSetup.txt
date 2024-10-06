@@ -1,0 +1,33 @@
+CREATE TABLE "Mission" (
+    "MissionID" INTEGER NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Reward" INTEGER,
+    PRIMARY KEY("MissionID")
+);
+
+CREATE TABLE "Item" (
+    "ItemID" INTEGER NOT NULL,
+    "Name" TEXT NOT NULL,
+    "Damage" INTEGER NOT NULL,
+    "Type" TEXT NOT NULL CHECK(Type = 'Melee' OR Type = 'Ranged'),
+    PRIMARY KEY("ItemID" AUTOINCREMENT)
+);
+
+CREATE TABLE "Player" (
+    "PlayerID" INTEGER NOT NULL,
+    "Username" TEXT NOT NULL UNIQUE,
+    "Level" INTEGER NOT NULL DEFAULT 0,
+    "MissionID" INTEGER NOT NULL DEFAULT 0,
+    "Currency" INTEGER NOT NULL DEFAULT 0,
+    FOREIGN KEY("MissionID") REFERENCES "Mission"("MissionID"),
+    PRIMARY KEY("PlayerID")
+);
+
+CREATE TABLE "PlayerItem" (
+    "PlayerItemID" INTEGER NOT NULL,
+    "PlayerID" INTEGER NOT NULL,
+    "ItemID" INTEGER NOT NULL,
+    "Durability" INTEGER NOT NULL DEFAULT 100,
+    FOREIGN KEY("PlayerID") REFERENCES "Player"("PlayerID"),
+    PRIMARY KEY("PlayerItemID" AUTOINCREMENT)
+);

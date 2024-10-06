@@ -1,0 +1,26 @@
+-- Inserting data into the Mission table
+INSERT INTO "Mission" ("MissionID", "Name", "Reward") VALUES
+(1, 'Retrieve the Artifact', 100),
+(2, 'Defeat the Dragon', 250),
+(3, 'Rescue the Princess', 150);
+
+-- Inserting data into the Item table
+INSERT INTO "Item" ("ItemID", "Name", "Damage", "Type") VALUES
+(1, 'Sword', 50, 'Melee'),
+(2, 'Bow', 35, 'Ranged'),
+(3, 'Axe', 60, 'Melee'),
+(4, 'Crossbow', 40, 'Ranged'),
+(5, 'Magic Staff', 70, 'Ranged');
+
+-- Inserting data into the Player table
+INSERT INTO "Player" ("PlayerID", "Username", "Level", "MissionID", "Currency") VALUES
+(1, 'Hero1', 5, 1, 200),
+(2, 'Warrior2', 10, 2, 500),
+(3, 'Mage3', 8, 3, 300);
+
+-- Inserting data into the PlayerItem table
+INSERT INTO "PlayerItem" ("PlayerItemID", "PlayerID", "ItemID", "Durability") VALUES
+(1, 1, 1, 100),  -- Hero1 with Sword
+(2, 1, 2, 80),   -- Hero1 with Bow
+(3, 2, 3, 90),   -- Warrior2 with Axe
+(4, 3, 5, 75);   -- Mage3 with Magic Staff
